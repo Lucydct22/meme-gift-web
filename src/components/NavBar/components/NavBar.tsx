@@ -7,9 +7,8 @@ export const NavBar = () => {
 			<Logo />
 
 			<span>
-				<NavBarButton href={'/option1'} title='Option 1' />
-				<NavBarButton href={'/option2'} title='Option 2' />
-				<NavBarButton href={'/option3'} title='Option 3' />
+				<NavBarButton href={'/search'} title='search' />
+				<NavBarButton href={'/trending'} title='trending' />
 			</span>
 
 			<span>

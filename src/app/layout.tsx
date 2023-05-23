@@ -14,11 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <div className='flex flex-col items-center justify-between pt-10'>
+      <body className='flex flex-col items-center justify-between pt-10'>
         <NavBar />
         <Search />
-        <div>{children}</div>
-      </div>
+        <section>
+          {children}
+        </section>
+      </body>
     </html>
   )
 }

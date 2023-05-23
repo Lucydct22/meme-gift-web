@@ -1,12 +1,29 @@
+'use client'
+
+import { GifCard } from "./GifCard"
 
 export const MyGifs = () => {
+
+	const handleClick = () => console.log('open file system and add gifs')
+
 	return (
-		<div>
-			<div className="flex justify-around">
-				<h1>MyGifs Container</h1>
+		<div className="">
+			<div className="w-screen flex justify-around">
+				<h1>MyGifs</h1>
 				<span>
-					<button>add gifs</button>
+					<button onClick={handleClick}>Add gifs</button>
 				</span>
+			</div>
+
+			<p className="block">	we will map the saved gifs here</p>
+			<div className="w-screen flex justify-center flex-wrap gap-8">
+				<GifCard />
+				<GifCard />
+				<GifCard />
+				<GifCard />
+				<GifCard />
+				<GifCard />
+				<GifCard />
 			</div>
 		</div>
 	)
