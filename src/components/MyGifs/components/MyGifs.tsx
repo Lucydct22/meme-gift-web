@@ -17,13 +17,7 @@ export const MyGifs = () => {
 
 			<p className="block">	we will map the saved gifs here</p>
 			<div className="w-screen flex justify-center flex-wrap gap-8">
-				<GifCard />
-				<GifCard />
-				<GifCard />
-				<GifCard />
-				<GifCard />
-				<GifCard />
-				<GifCard />
+				map gifs saved
 			</div>
 		</div>
 	)

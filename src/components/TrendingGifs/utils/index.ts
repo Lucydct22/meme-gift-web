@@ -1,10 +1,10 @@
 import { IgifsData } from "../types";
 
 export const parseGifsDataFromApi = (data: any) => {
-	return data.map((gifApi: any) => ({
-		type: gifApi.type,
-		id: gifApi.id,
-		title: gifApi.title,
-		url: gifApi.url
+	return data.map(({ type, id, title, images: { original: { url } } }: any) => ({
+		type: type,
+		id: id,
+		title: title,
+		url: url
 	})) as IgifsData[]
 }

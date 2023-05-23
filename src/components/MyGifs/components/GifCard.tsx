@@ -1,12 +1,23 @@
+import { FC } from "react";
 import Image from "next/image"
-import logosample from '@images/bird-logo.png'
+// import logosample from '@images/bird-logo.png'
 
-export const GifCard = () => {
+interface GifCardProps {
+	title: string;
+	url: string;
+}
+
+export const GifCard: FC<GifCardProps> = ({
+	title,
+	url
+}) => {
+	console.log(title, 'title')
+	console.log(url, 'url')
 	return (
 		<div className="flex flex-col border-black border-2 rounded-md items-center h-48 w-48">
-			<h3 className="h-1/5 flex items-center">Gift Card Title</h3>
+			<h3 className="h-1/5 flex items-center">{title}</h3>
 			<span className="h-4/5">
-				<Image src={logosample} alt='gift image' />
+				<Image src={url} alt='gift image' width={200} height={200} />
 			</span>
 		</div>
 	)
