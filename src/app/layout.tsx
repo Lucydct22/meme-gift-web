@@ -1,4 +1,5 @@
 import { NavBar } from '@components/NavBar'
+import { Search } from '@components/Search'
 import './globals.css'
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <div className='flex flex-col items-center justify-between pt-10'>
         <NavBar />
+        <Search />
         <div>{children}</div>
       </div>
     </html>

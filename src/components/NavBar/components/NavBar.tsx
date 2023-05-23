@@ -1,5 +1,5 @@
-import { NavBarButton } from "./NavBarButton"
 import { Logo } from "./Logo"
+import { NavBarButton } from "./NavBarButton"
 
 export const NavBar = () => {
 	return (
