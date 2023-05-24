@@ -7,7 +7,7 @@ export const NavBar = () => {
 			<Logo />
 
 			<span>
-				<NavBarButton href={'/search'} title='search' />
+				<NavBarButton href={'/cats'} title='cats' />
 				<NavBarButton href={'/trending'} title='trending' />
 			</span>
 

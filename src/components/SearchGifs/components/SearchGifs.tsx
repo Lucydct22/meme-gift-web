@@ -13,13 +13,13 @@ export const SearchGifs = () => {
 
 	useEffect(() => {
 		const getSearchGiphys = async () => {
-			const response = await fetch(`${process.env.BASE_URL}/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${searchParams.get('query')}&limit=25&offset=0&rating=g&lang=en`)
+			const response = await fetch(`${process.env.BASE_URL}/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=cats&limit=25&offset=0&rating=g&lang=en`)
 			const { data } = await response.json();
 			const searchGifsData = parseGifsDataToSearchGifs(data)
 			setSearchGifs(searchGifsData)
 		}
 		getSearchGiphys()
-	}, [searchParams])
+	}, [])
 
 	useEffect(() => {
 		const query = searchParams.get('query')
