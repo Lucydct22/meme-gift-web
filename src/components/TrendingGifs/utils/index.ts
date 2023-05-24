@@ -1,4 +1,4 @@
-import { IgifsData } from "../types";
+import { ITrendingGifs } from "../types";
 
 export const parseGifsDataFromApi = (data: any) => {
 	return data.map(({ type, id, title, images: { original: { url } } }: any) => ({
@@ -6,5 +6,5 @@ export const parseGifsDataFromApi = (data: any) => {
 		id: id,
 		title: title,
 		url: url
-	})) as IgifsData[]
+	})) as ITrendingGifs[]
 }

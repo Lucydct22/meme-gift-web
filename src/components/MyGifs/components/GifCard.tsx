@@ -11,8 +11,6 @@ export const GifCard: FC<GifCardProps> = ({
 	title,
 	url
 }) => {
-	console.log(title, 'title')
-	console.log(url, 'url')
 	return (
 		<div className="flex flex-col border-black border-2 rounded-md items-center h-48 w-48">
 			<h3 className="h-1/5 flex items-center">{title}</h3>

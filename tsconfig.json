@@ -30,6 +30,12 @@
       "@images*": [
         "./src/assets/images/*"
       ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
     }
   },
   "include": [

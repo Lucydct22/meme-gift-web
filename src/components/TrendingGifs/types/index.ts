@@ -1,1 +1,1 @@
-export * from './IgifsData'
+export * from './ITrendingGifs'
