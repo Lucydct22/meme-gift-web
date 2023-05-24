@@ -9,11 +9,11 @@ import { useSearchParams } from 'next/navigation';
 export const SearchGifs = () => {
 	const [searchGifs, setSearchGifs] = useState<ISearchGifs[]>([])
 	const searchParams = useSearchParams();
+	const [querySearchGifs, setQuerySearchGifs] = useState<ISearchGifs[]>([])
 
 	useEffect(() => {
 		const getSearchGiphys = async () => {
-			const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=40EFVVVBiNp354iOddq5gaeSolWIbGjd&q=${searchParams.get('query')}&limit=25&offset=0&rating=g&lang=en`)
-			// const response = await fetch(`${process.env.BASE_URL}/gifs/search?api_key=${process.env.NEXT_PUBLIC_GIPHY_API_KEY}&q=${searchParams.get('query')}&limit=25&offset=0&rating=g&lang=en`)
+			const response = await fetch(`${process.env.BASE_URL}/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${searchParams.get('query')}&limit=25&offset=0&rating=g&lang=en`)
 			const { data } = await response.json();
 			const searchGifsData = parseGifsDataToSearchGifs(data)
 			setSearchGifs(searchGifsData)
@@ -21,10 +21,26 @@ export const SearchGifs = () => {
 		getSearchGiphys()
 	}, [searchParams])
 
+	useEffect(() => {
+		const query = searchParams.get('query')
+		const filteredGifs = query && searchGifs.filter((gif) => {
+			const regex = new RegExp(query, 'i');
+			return regex.test(gif.title);
+		}) || [];
+		setQuerySearchGifs(filteredGifs)
+
+	}, [searchParams, searchGifs])
+
+	if (querySearchGifs.length) return (
+		<div className="layout-gifs">
+			{(querySearchGifs.map(({ id, title, url }: ISearchGifs) => (
+				<GifCard key={id} title={title} url={url} />
+			)))}
+		</div>
+	)
+
 	return (
 		<>
-			<div>Search Gifs</div>
-
 			<div className="layout-gifs">
 				{searchGifs.length ? (searchGifs.map(({ id, title, url }: ISearchGifs) => (
 					<GifCard key={id} title={title} url={url} />

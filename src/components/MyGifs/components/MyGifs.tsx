@@ -33,8 +33,6 @@ export const MyGifs = () => {
 		setUploadedImages(state)
 	}
 
-	const handleClick = () => console.log(uploadedImages)
-
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		event.target.files && handleSetUploadedImagesState([...uploadedImages, { title: 'sample title', id: uuidv4(), image: URL.createObjectURL(event.target.files[0]) }])
 	}
@@ -64,9 +62,7 @@ export const MyGifs = () => {
 	return (
 		<div className="">
 			<div className="w-screen flex justify-around">
-				<h1>MyGifs</h1>
 				<span>
-					<button onClick={handleClick}>Add gifs</button>
 					<input
 						type="file"
 						value=''

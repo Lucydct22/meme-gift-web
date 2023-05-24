@@ -13,8 +13,7 @@ export const TrendingGifs = () => {
 
 	useEffect(() => {
 		const getTrendingGiphys = async () => {
-			const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=40EFVVVBiNp354iOddq5gaeSolWIbGjd&limit=25&rating=g')
-			// const response = await fetch(`${process.env.BASE_URL}/gifs/trending?api_key=${process.env.NEXT_PUBLIC_GIPHY_API_KEY}&limit=25&rating=g`)
+			const response = await fetch(`${process.env.BASE_URL}/gifs/trending?api_key=${process.env.GIPHY_API_KEY}&limit=25&rating=g`)
 			const { data } = await response.json();
 			const gifsData = parseGifsDataToTrendingGifs(data)
 			setTrendingGifs(gifsData)
@@ -42,15 +41,10 @@ export const TrendingGifs = () => {
 	)
 
 	return (
-		<>
-			<div>TrendingGifs</div>
-
-			<div className="layout-gifs">
-				{trendingGifs.length ? (trendingGifs.map(({ id, title, url }: ITrendingGifs) => (
-					<GifCard key={id} title={title} url={url} />
-				))) : null}
-			</div>
-
-		</>
+		<div className="layout-gifs">
+			{trendingGifs.length ? (trendingGifs.map(({ id, title, url }: ITrendingGifs) => (
+				<GifCard key={id} title={title} url={url} />
+			))) : null}
+		</div>
 	)
 }
