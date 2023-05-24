@@ -34,20 +34,23 @@ export const TrendingGifs = () => {
 	}, [searchParams, trendingGifs])
 
 	if (queryTrendingGifs.length) return (
-		<>
+		<div className="layout-gifs">
 			{(queryTrendingGifs.map(({ id, title, url }: ITrendingGifs) => (
 				<GifCard key={id} title={title} url={url} />
 			)))}
-		</>
+		</div>
 	)
 
 	return (
 		<>
 			<div>TrendingGifs</div>
 
-			{trendingGifs.length ? (trendingGifs.map(({ id, title, url }: ITrendingGifs) => (
-				<GifCard key={id} title={title} url={url} />
-			))) : null}
+			<div className="layout-gifs">
+				{trendingGifs.length ? (trendingGifs.map(({ id, title, url }: ITrendingGifs) => (
+					<GifCard key={id} title={title} url={url} />
+				))) : null}
+			</div>
+
 		</>
 	)
 }
