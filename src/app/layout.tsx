@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='flex flex-col items-center justify-between pt-10'>
+      <body className='flex flex-col items-center justify-between pt-10 overflow-scroll'>
         <NavBar />
         <Search />
         <section>
